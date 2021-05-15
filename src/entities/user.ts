@@ -6,8 +6,7 @@ import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 @Entity()
 export class User {
 
-    @PrimaryGeneratedColumn()
-    @Column({ type: 'uuid' })
+    @PrimaryGeneratedColumn('uuid')
     public id!: string;
 
     @Column({ length: 255, type: 'varchar' })
@@ -20,6 +19,8 @@ export class User {
     @Column({ length: 255, type: 'varchar' })
     password!: string;
 
+    //in real life it could be stored in a separate table with other details like ip address, device print etc.
+    //also then we would avoid updating user entry with every request - but for this project it's fine
     @Column({ nullable: true, type: 'datetime' })
     lastLogin!: Date;
 }
