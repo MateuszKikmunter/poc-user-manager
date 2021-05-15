@@ -1,0 +1,20 @@
+{
+  "name": "poc-user-manager",
+  "version": "1.0.0",
+  "description": "POC of a REST service to manage users.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MateuszKikmunter/poc-user-manager.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MateuszKikmunter/poc-user-manager/issues"
+  },
+  "homepage": "https://github.com/MateuszKikmunter/poc-user-manager#readme"
+}
