@@ -24,7 +24,6 @@ export class UserController {
 
     public async getUser(req: Request, res: Response): Promise<Response> {
         try {
-            console.log(req.params.id);
             const user = await getConnection('sqlite').getRepository(User).findOne({ id: req.params.id });
             return user 
                 ? res.status(HttpCode.OK).json(user) 
@@ -72,8 +71,7 @@ export class UserController {
     }
 
     public async deleteUser(req: Request, res: Response): Promise<Response> {
-        try {
-            
+        try {            
             const user = await getConnection('sqlite').getRepository(User).find({ id: req.params.id });
             if(!user) {
                 res.status(HttpCode.NOT_FOUND).json({ error: 'User not found!' });
