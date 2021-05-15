@@ -1,5 +1,5 @@
 //local imports
-import { Route } from './../shared/interfaces/route';
+import { Route } from '../shared/abstract/route';
 import { UserController } from './../controllers/user.controller';
 import { createOrUpdateUserRules, validateUserRequest } from '../middleware/user.validator';
 

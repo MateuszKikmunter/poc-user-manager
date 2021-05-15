@@ -5,9 +5,9 @@ import helmet from 'helmet';
 import cors from 'cors';
 
 //local imports
-import { Route } from './shared/interfaces/route';
-import { ServerConfiguration } from './shared/interfaces/server.configuration';
+import { Route } from './shared/abstract/route';
 import { HttpCode } from './utils/http.code';
+import { ServerConfiguration } from './shared/abstract/server.configuration';
 
 
 export class App {

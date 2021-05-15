@@ -5,7 +5,9 @@ import { Connection, createConnection } from "typeorm";
 //local imports
 import { App } from "./app";
 import { User } from './entities/user';
+import AuthRoute from './routes/auth.route';
 import { UserRoute } from './routes/user.rotue';
+
 
 //TODO: move connection creation to separate service
 createConnection({
@@ -22,7 +24,8 @@ createConnection({
         port: process.env.PORT ?? 4000,
         routes: [
             //this could be done with depedency injection to make it easier to test and to decouple it
-            new UserRoute()
+            new UserRoute(),
+            new AuthRoute()
         ],
         middleware: [
             json(),
