@@ -16,5 +16,24 @@
   "bugs": {
     "url": "https://github.com/MateuszKikmunter/poc-user-manager/issues"
   },
-  "homepage": "https://github.com/MateuszKikmunter/poc-user-manager#readme"
+  "homepage": "https://github.com/MateuszKikmunter/poc-user-manager#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-validator": "^6.11.1",
+    "helmet": "^4.6.0",
+    "reflect-metadata": "^0.1.13",
+    "sqlite3": "^5.0.2",
+    "typeorm": "^0.2.32"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/cors": "^2.8.10",
+    "@types/express": "^4.17.11",
+    "@types/helmet": "^4.0.0",
+    "dotenv": "^9.0.2",
+    "nodemon": "^2.0.7",
+    "ts-node": "^9.1.1"
+  }
 }
