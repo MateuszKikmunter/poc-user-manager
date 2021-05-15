@@ -7,7 +7,7 @@ import { Route } from '../shared/abstract/route';
 import { AuthController } from '../controllers/auth.controller';
 
 
-export default class  AuthRoute implements Route {
+export class  AuthRoute implements Route {
 
     private authURL = '/api/auth';
     //we could inject those dependencies with depedency injection container to make it easier to test and to decouple it

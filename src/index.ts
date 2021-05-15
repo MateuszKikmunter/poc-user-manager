@@ -1,25 +1,16 @@
 //libs imports
 import { json, urlencoded } from 'express';
-import { Connection, createConnection } from "typeorm";
+import { Connection } from "typeorm";
 
 //local imports
 import { App } from "./app";
 import { User } from './entities/user';
-import AuthRoute from './routes/auth.route';
+import { SqlConnectionFactory } from './factories/sql.connection.factory';
+import { AuthRoute } from './routes/auth.route';
 import { UserRoute } from './routes/user.rotue';
 
 
-//TODO: move connection creation to separate service
-createConnection({
-    name: 'sqlite',
-    type: 'sqlite',
-    entities: [User],
-    //using in memory db for simplicity
-    database: ':memory:',
-    synchronize: true,
-    logging: true
-}).then((connection: Connection) => {
-
+SqlConnectionFactory.createConnection('sqlite', [User]) .then((connection: Connection) => {
     const app = new App({
         port: process.env.PORT ?? 4000,
         routes: [
