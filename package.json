@@ -4,7 +4,9 @@
   "description": "POC of a REST service to manage users.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc -p . && node ./dist/index.js",
+    "start:dev": "nodemon src/index.ts"
   },
   "repository": {
     "type": "git",
@@ -34,6 +36,7 @@
     "@types/helmet": "^4.0.0",
     "dotenv": "^9.0.2",
     "nodemon": "^2.0.7",
-    "ts-node": "^9.1.1"
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
   }
 }
