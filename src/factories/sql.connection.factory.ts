@@ -8,10 +8,10 @@ import { DbType } from '../shared/types/db.type';
 export class SqlConnectionFactory {
 
     /**
-     * Creates TypeORM connection based on the db type we want to connect to.
+     * * Creates TypeORM connection based on the db type we want to connect to.
+     * * It handles only sqlite now but it could be extended to handle also oter databases
      * @param databaseType db type we want connect to, e.g. 'sqlite'
      * @param entities enties for which tables should be created
-     * It handles only sqlite now but it could extended to handle also oter databases
      */
     public static async createConnection(databaseType: DbType, entities: any[]): Promise<Connection> {
 
