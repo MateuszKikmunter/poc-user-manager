@@ -17,8 +17,16 @@ export const loginUserRules = [
 ];
 
 export const createOrUpdateUserRules = [
-    ...loginUserRules,
-    check('name').notEmpty().withMessage('Name is required.')
+    check('email').isEmail().withMessage('Please enter a valid email.'),
+    check('email').notEmpty().withMessage('Email is required.'),
+    check('name').notEmpty().withMessage('Name is required.'),
+    check('password').custom((password: string) => {
+        if(password) {
+            return password && password.length >= 8;
+        } else {
+            return true;
+        }
+    }).withMessage('Password is requred and must be at least 8 characters long')
 ];
 
 /**

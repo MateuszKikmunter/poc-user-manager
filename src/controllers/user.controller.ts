@@ -57,12 +57,20 @@ export class UserController {
 
     public async updateUser(req: Request, res: Response): Promise<Response> {
         try {
-            const user = await getConnection('sqlite').getRepository(User).find({ id: req.params.id });
+            const user = await getConnection('sqlite').getRepository(User).findOne({ id: req.params.id });
             if(!user) {
                 return res.status(HttpCode.NOT_FOUND).json({ error: 'User not found!' });
             }
-            
-            await getConnection('sqlite').getRepository(User).save({ ...user, ...req.body });
+        
+            await getConnection('sqlite').getRepository(User).update(user, {
+                name: req.body.name,
+                email: req.body.email,
+                //if password provided, hash it and save, otherwise, use old password
+                password: req.body.password 
+                    ? await bcrypt.hash(req.body.password, await bcrypt.genSalt()) 
+                    : user.password
+            });
+
             return res.status(HttpCode.OK).send();
         } catch (err) {
             console.log(err);
