@@ -2,7 +2,7 @@
 import { Router } from "express";
 
 
-export class Route {
+export abstract class Route {
     readonly router: Router;
 
     constructor() {

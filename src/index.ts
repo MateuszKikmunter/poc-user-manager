@@ -10,7 +10,7 @@ import { AuthRoute } from './routes/auth.route';
 import { UserRoute } from './routes/user.rotue';
 
 
-SqlConnectionFactory.createConnection('sqlite', [User]) .then((connection: Connection) => {
+SqlConnectionFactory.createConnection('sqlite', [User]).then((connection: Connection) => {
     const app = new App({
         port: process.env.PORT ?? 4000,
         routes: [

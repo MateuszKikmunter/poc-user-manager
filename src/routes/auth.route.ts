@@ -10,14 +10,14 @@ export class  AuthRoute extends Route {
 
     private authURL = '/api/auth';
     //we could inject those dependencies with depedency injection container to make it easier to test and to decouple it
-    private authController: AuthController;
+    private _authController: AuthController;
     constructor() {
         super();
-        this.authController = new AuthController(); 
+        this._authController = new AuthController(); 
         this.initRoutes();
     }
 
     private initRoutes(): void {        
-        this.router.post(`${this.authURL}/login`, loginUserRules, [validateUserRequest, this.authController.login]);
+        this.router.post(`${this.authURL}/login`, loginUserRules, [validateUserRequest, this._authController.login]);
     }
 }
