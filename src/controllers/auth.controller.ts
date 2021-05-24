@@ -20,7 +20,7 @@ export class AuthController {
 
             const passwordsMatch = await bcrypt.compare(req.body.password, user.password);
             if(!passwordsMatch) {
-                return res.status(HttpCode.SERVER_ERROR).send({ error: 'Wrong email or password' });
+                return res.status(HttpCode.UNAUTHORIZED).send({ error: 'Wrong email or password' });
             }
 
             //in real life we could store in separate table with other details like, ipAddress, device type, browser type, etc.
@@ -33,7 +33,7 @@ export class AuthController {
 
         } catch (err) {
             console.log(err);
-            return res.status(HttpCode.SERVER_ERROR).json({ error: err });
+            return res.status(HttpCode.BAD_REQUEST).json({ error: err });
         }
     }
 }
